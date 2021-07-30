@@ -1,6 +1,6 @@
 -proyecto realizado con angular, modelos, componentes, guardianes, servicios de data,
  material design modo dark theme, 
-api creada en node,express con mysql, 
+api creada en node,express con mysql con la escructura MVC (Modelo Vista Controlador), 
 se incorporo la libreria swiss alert2, echarts para graficas y momentjs para el manejo de las fechas # bebetter
 
 nombre de db debe ser: api_rest_bebetter

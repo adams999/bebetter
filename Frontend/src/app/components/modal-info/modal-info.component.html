@@ -1,0 +1,293 @@
+<div class="example-container">
+  <form [formGroup]="formulario" #clienteForm="ngForm">
+    <mat-checkbox
+      class="center"
+      [formControl]="hideRequiredControl"
+      ngDefaultControl
+      ><b> Formulario de Usuario</b></mat-checkbox
+    ><br />
+
+    <div class="content">
+      <div class="row">
+        <mat-form-field
+          appearance="fill"
+          [floatLabel]="floatLabelControl.value"
+          *ngIf="InsertStatus"
+        >
+          <mat-label>Id</mat-label>
+          <input
+            matInput
+            name="id"
+            type="number"
+            [disabled]="false"
+            [value]="data.id_pers"
+            formControlName="id_pers"
+            [(ngModel)]="datos.id_pers"
+            placeholder="Id"
+          /> </mat-form-field
+        ><br />
+
+        <mat-form-field
+          appearance="fill"
+          [floatLabel]="floatLabelControl.value"
+        >
+          <mat-label>Nombre</mat-label>
+          <input
+            matInput
+            required
+            name="nombre"
+            type="text"
+            placeholder="Ingresa el Nombre"
+            [value]="datos.nom_pers"
+            formControlName="nom_pers"
+            [(ngModel)]="datos.nom_pers"
+            minlength="3"
+            maxlength="50"
+          /> </mat-form-field
+        ><br />
+
+        <mat-form-field
+          appearance="fill"
+          [floatLabel]="floatLabelControl.value"
+        >
+          <mat-label>Apellido</mat-label>
+          <input
+            matInput
+            required
+            name="apellido"
+            type="text"
+            placeholder="Ingresa el Apellido"
+            [value]="datos.ape_pers"
+            formControlName="ape_pers"
+            [(ngModel)]="datos.ape_pers"
+            minlength="3"
+            maxlength="50"
+          /> </mat-form-field
+        ><br />
+
+        <mat-form-field
+          appearance="fill"
+          [floatLabel]="floatLabelControl.value"
+        >
+          <mat-label>Cedula</mat-label>
+          <input
+            matInput
+            required
+            name="cedula"
+            type="text"
+            placeholder="Ingresa la Cedula"
+            [value]="datos.cedu_pers"
+            formControlName="cedu_pers"
+            [(ngModel)]="datos.cedu_pers"
+            minlength="5"
+            maxlength="15"
+          /> </mat-form-field
+        ><br />
+
+        <mat-form-field
+          appearance="fill"
+          [floatLabel]="floatLabelControl.value"
+        >
+          <mat-label>F. Nacimiento</mat-label>
+          <input
+            matInput
+            required
+            name="nacimiento"
+            type="date"
+            placeholder="Selecciona la fecha"
+            [value]="datos.fech_nac_pers"
+            formControlName="fech_nac_pers"
+            [(ngModel)]="datos.fech_nac_pers"
+            [max]="dateHoy"
+          /> </mat-form-field
+        ><br />
+      </div>
+
+      <div class="row">
+        <mat-form-field
+          appearance="fill"
+          [floatLabel]="floatLabelControl.value"
+        >
+          <mat-label>Sexo</mat-label>
+          <mat-select
+            [(ngModel)]="datos.sexo_pers"
+            formControlName="sexo_pers"
+            required
+            name="sexo"
+          >
+            <mat-option value="Masculino">{{ "Masculino" }}</mat-option>
+            <mat-option value="Femenino">{{ "Femenino" }}</mat-option>
+          </mat-select> </mat-form-field
+        ><br />
+
+        <mat-form-field
+          appearance="fill"
+          [floatLabel]="floatLabelControl.value"
+        >
+          <mat-label>Profesion</mat-label>
+          <input
+            matInput
+            required
+            name="profesion"
+            type="text"
+            placeholder="Ingresa la Profesion"
+            [value]="datos.prof_pers"
+            formControlName="prof_pers"
+            [(ngModel)]="datos.prof_pers"
+            minlength="3"
+            maxlength="15"
+          /> </mat-form-field
+        ><br />
+
+        <mat-form-field
+          appearance="fill"
+          [floatLabel]="floatLabelControl.value"
+        >
+          <mat-label>Direccion</mat-label>
+          <input
+            matInput
+            required
+            name="direccion"
+            type="text"
+            placeholder="Ingresa la Direccion"
+            [value]="datos.dire_pers"
+            formControlName="dire_pers"
+            [(ngModel)]="datos.dire_pers"
+            minlength="10"
+            maxlength="250"
+          /> </mat-form-field
+        ><br />
+
+        <mat-form-field
+          appearance="fill"
+          [floatLabel]="floatLabelControl.value"
+        >
+          <mat-label>Municipio</mat-label>
+          <input
+            matInput
+            required
+            name="municipio"
+            type="text"
+            placeholder="Ingresa el municipio"
+            [value]="datos.mun_pers"
+            formControlName="mun_pers"
+            [(ngModel)]="datos.mun_pers"
+            minlength="5"
+            maxlength="50"
+          /> </mat-form-field
+        ><br />
+
+        <mat-form-field
+          appearance="fill"
+          [floatLabel]="floatLabelControl.value"
+        >
+          <mat-label>Telefono</mat-label>
+          <input
+            matInput
+            required
+            name="telefono"
+            type="text"
+            placeholder="Ingresa tu telefono"
+            [value]="datos.tel_pers"
+            formControlName="tel_pers"
+            [(ngModel)]="datos.tel_pers"
+            minlength="7"
+            maxlength="15"
+          /> </mat-form-field
+        ><br />
+      </div>
+    </div>
+
+    <div class="center">
+      <mat-form-field appearance="fill" [floatLabel]="floatLabelControl.value">
+        <mat-label>Estatus</mat-label>
+        <mat-select
+          [(ngModel)]="datos.est_pers"
+          formControlName="est_pers"
+          required
+          name="estatus"
+        >
+          <mat-option value="1" selected>{{ "Activo" }}</mat-option>
+          <mat-option value="0">{{ "Inactivo" }}</mat-option>
+        </mat-select> </mat-form-field
+      ><br />
+    </div>
+
+    <div class="center">
+      <button mat-icon-button color="primary">
+        <mat-icon (click)="cerrarModal()">arrow_back</mat-icon>
+      </button>
+
+      <button mat-icon-button color="info" *ngIf="InsertStatus">
+        <mat-icon (click)="eliminarRegistro()">delete</mat-icon>
+      </button>
+
+      <button
+        *ngIf="InsertStatus"
+        (click)="procesarData(clienteForm.value)"
+        mat-icon-button
+        color="warning"
+        type="submit"
+      >
+        <mat-icon>save</mat-icon>
+      </button>
+
+      <button
+        *ngIf="InsertStatus == false"
+        (click)="registroUserNew()"
+        mat-icon-button
+        color="warning"
+        type="submit"
+      >
+        <mat-icon>save</mat-icon>
+      </button>
+    </div>
+  </form>
+
+  <div *ngIf="InsertStatus != false">
+    <hr />
+    <mat-checkbox
+      class="center"
+      [formControl]="hideRequiredControl"
+      ngDefaultControl
+    >
+      <button 
+        *ngIf="InsertStatus"
+        (click)="registrarAutoPersonal()"
+        mat-icon-button
+        color="warn"
+      >
+        <mat-icon class="add-auto">add_circle</mat-icon>
+      </button>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <b class="title-auto"> Autos Asignados</b></mat-checkbox
+    ><br />
+
+    <div *ngIf="dataAutos != null && dataAutos.length > 0">
+      <div class="content-autos">
+        <div class="row-auto title-descrip">Auto</div>
+        <div class="row-auto title-descrip">Marca</div>
+        <div class="row-auto title-descrip">Año</div>
+        <div class="row-auto title-descrip">Editar</div>
+      </div>
+
+      <div *ngFor="let auto of dataAutos" class="content-autos">
+        <div class="row-auto text">{{ auto.auto_auto }}</div>
+        <div class="row-auto text">{{ auto.marc_auto }}</div>
+        <div class="row-auto text">{{ auto.year_auto }}</div>
+        <div class="row-auto">
+          <button
+            title="Editar"
+            mat-icon-button
+            color="warn"
+            aria-label="Accion"
+            (click)="editAuto(auto)"
+            class="btn-info-auto"
+          >
+            <mat-icon>visibility</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

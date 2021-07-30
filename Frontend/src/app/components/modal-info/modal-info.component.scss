@@ -1,0 +1,55 @@
+.content {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.content-autos {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.row-auto {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-right: 10px;
+  margin-left: 10px;
+  width: 200px;
+  padding-top: 0px;
+  text-align: center;
+}
+
+.text {
+  padding-top: 15px;
+}
+
+.title-auto {
+  margin-top: 10px;
+}
+
+.title-descrip {
+  color: #e91e63;
+  font-size: medium;
+  font-weight: bolder;
+}
+
+.btn-info-auto {
+  margin: auto;
+}
+
+.add-auto{
+  font-size: 30px;
+}

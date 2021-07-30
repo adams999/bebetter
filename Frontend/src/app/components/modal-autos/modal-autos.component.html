@@ -1,0 +1,137 @@
+<div class="example-container">
+  <form [formGroup]="formulario" #clienteForm="ngForm">
+    <mat-checkbox
+      class="center"
+      [formControl]="hideRequiredControl"
+      ngDefaultControl
+      ><b> Formulario de Autos</b></mat-checkbox
+    ><br />
+
+    <div class="content">
+      <div class="row">
+        <mat-form-field
+          appearance="fill"
+          [floatLabel]="floatLabelControl.value"
+          *ngIf="InsertStatus"
+        >
+          <mat-label>Id</mat-label>
+          <input
+            matInput
+            name="id"
+            type="number"
+            [disabled]="false"
+            [value]="data.id_auto"
+            formControlName="id_auto"
+            [(ngModel)]="datos.id_auto"
+            placeholder="Id"
+          /> </mat-form-field
+        ><br />
+
+        <mat-form-field
+          appearance="fill"
+          [floatLabel]="floatLabelControl.value"
+        >
+          <mat-label>Modelo Auto</mat-label>
+          <input
+            matInput
+            required
+            name="auto"
+            type="text"
+            placeholder="Ingresa el Auto"
+            [value]="datos.auto_auto"
+            formControlName="auto_auto"
+            [(ngModel)]="datos.auto_auto"
+            minlength="3"
+            maxlength="50"
+          /> </mat-form-field
+        ><br />
+      </div>
+
+      <div class="row">
+        <mat-form-field
+          appearance="fill"
+          [floatLabel]="floatLabelControl.value"
+        >
+          <mat-label>Marca Auto</mat-label>
+          <input
+            matInput
+            required
+            name="marca"
+            type="text"
+            placeholder="Marca"
+            [value]="datos.marc_auto"
+            formControlName="marc_auto"
+            [(ngModel)]="datos.marc_auto"
+            minlength="3"
+            maxlength="50"
+          /> </mat-form-field
+        ><br />
+
+        <mat-form-field
+          appearance="fill"
+          [floatLabel]="floatLabelControl.value"
+        >
+          <mat-label>Año</mat-label>
+          <input
+            matInput
+            required
+            name="year"
+            type="number"
+            placeholder="Año del carro"
+            [value]="datos.year_auto"
+            formControlName="year_auto"
+            [(ngModel)]="datos.year_auto"
+            minlength="3"
+            maxlength="4"
+          /> </mat-form-field
+        ><br />
+      </div>
+    </div>
+
+    <div class="center">
+      <mat-form-field appearance="fill" [floatLabel]="floatLabelControl.value">
+        <mat-label>Estatus</mat-label>
+        <mat-select
+          [(ngModel)]="datos.est_auto"
+          formControlName="est_auto"
+          required
+          name="estatus"
+        >
+          <mat-option value="1" selected>{{ "Activo" }}</mat-option>
+          <mat-option value="0">{{ "Inactivo" }}</mat-option>
+        </mat-select> </mat-form-field
+      ><br />
+    </div>
+
+    <div class="center">
+      <button
+        mat-icon-button
+        color="info"
+        (click)="eliminarRegistro()"
+        *ngIf="InsertStatus"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+
+      <button
+        *ngIf="InsertStatus"
+        (click)="procesarData(clienteForm.value)"
+        mat-icon-button
+        color="warning"
+        type="submit"
+      >
+        <mat-icon>save</mat-icon>
+      </button>
+
+      <button
+        *ngIf="InsertStatus == false"
+        mat-icon-button
+        color="warning"
+        type="submit"
+        (click)="registroAutoNew()"
+      >
+        <mat-icon>save</mat-icon>
+      </button>
+    </div>
+  </form>
+</div>
